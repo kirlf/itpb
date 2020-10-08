@@ -31,6 +31,10 @@
 - [Переменные, функции, циклы, условия, структуры, компиляция](https://github.com/kirlf/itpb/blob/master/autumn/1_basics.md)
 - [Указатели, работа с памятью](https://github.com/kirlf/itpb/blob/master/autumn/2_pointers.md)
 
+2. Основы алгоритмов и структур данных: 
+- [Добавление элемента в начало односвязного списка](https://github.com/kirlf/itpb/blob/master/autumn/3_linked_lists.md)
+
+
 ## Лабораторные работы
 
 1. [Основы языка C](https://github.com/kirlf/itpb/blob/master/lab_1.md)
