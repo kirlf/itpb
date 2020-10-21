@@ -60,9 +60,9 @@ print(arr_1)
 ```
 3. **Пирамидальная сортировка (heap sort)**
 
-- Из сортируемого массива длинною <img src="https://i.upmath.me/svg/N" alt="N" /> составляется двоичная куча - <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" />.
-- Наименьший (или наибольший) элемент берется из корня - <img src="https://i.upmath.me/svg/O(1)" alt="O(1)" />.
-- Двоичная куча перестраивается, чтобы сохранить свои свойства - <img src="https://i.upmath.me/svg/O(%5Clog_2N)" alt="O(\log_2N)" />.
+- Из сортируемого массива длинною <img src="https://i.upmath.me/svg/N" alt="N" /> составляется двоичная куча: <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" />.
+- Наименьший (или наибольший) элемент берется из корня: <img src="https://i.upmath.me/svg/O(1)" alt="O(1)" />.
+- Двоичная куча перестраивается, чтобы сохранить свои свойства: <img src="https://i.upmath.me/svg/O(%5Clog_2N)" alt="O(\log_2N)" />.
 - Два предыдущих пункта повторяются <img src="https://i.upmath.me/svg/N" alt="N" /> раз.
 
 Ассимптотическая сложность: <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" />
