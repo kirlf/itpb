@@ -125,4 +125,60 @@ print(arr_1)
 
 ## Алгоритмы сортировки, используемые в рамках CPython и NumPy
 
+Мне кажется, еще одной интересной темой является вопрос о том, какие именно алгоритмы сортировки используются в рамках реализации других языков. В качестве примеров возьмем язык Python 3, а точнее его самую распространенную реализацию CPython, и один из самых популярных среди научного сообщества модулей данного языка - [NumPy](https://numpy.org/doc/stable/index.html).
+
+В рамках языка Python доступны два встроенных способа сортировки:
+- сортирующий на месте и возвращающий `None` метод [sort()](https://docs.python.org/3/library/stdtypes.html#list.sort), 
+- и возвращающая отсортированный массив функция [sorted()](https://docs.python.org/3/howto/sorting.html).
+
+Оба способа используют одни и тот же гибридный алгоритм сортировки [Timsort](https://neerc.ifmo.ru/wiki/index.php?title=Timsort), совмещающий в себе сортировку слиянием и сортировку вставками. 
+
+Ограничивается ли ею же и NumPy? Заходим на станицу документации метода [numpy.sort](https://numpy.org/doc/stable/reference/generated/numpy.sort.html) (версия 1.19.0) и читаем какие доступны варианты:
+
+- `quicksort` (по умолчанию),
+- `mergesort`,
+- `heapsort`,
+- `stable` (начиная с версии 1.15.0).
+
+Значительно больше. Рассмотри поо поряду.
+
+ 1. **quicksort**
+ 
+ Казалось бы, уже рассмотренная нами быстрая сортировка, однако, не совсем так:
+ 
+> New in version 1.12.0.
+>
+> quicksort has been changed to [introsort](https://neerc.ifmo.ru/wiki/index.php?title=%D0%91%D1%8B%D1%81%D1%82%D1%80%D0%B0%D1%8F_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0#Introsort). When sorting does not make enough progress it switches to heapsort. This implementation makes quicksort O(n*log(n)) in the worst case.
+ 
+То есть и здесь мы наблюдаем переход на гибридный вид сортировки.
+
+2. **mergesort**
+
+Сортировка слиянием? Опять же, и да, и нет:
+
+> New in version 1.17.0.
+>
+> Timsort is added for better performance on already or nearly sorted data. On random data timsort is almost identical to mergesort. It is now used for stable sort while quicksort is still the default sort if none is chosen. For timsort details, refer to [CPython listsort.txt](https://github.com/python/cpython/blob/3.7/Objects/listsort.txt). ‘mergesort’ and ‘stable’ are mapped to radix sort for integer data types. Radix sort is an O(n) sort instead of O(n log n).
+
+То есть:
+- во-первых, `mergesort` и `stable` в данном контексте синонимы,
+- во-вторых, для большинства случаев подразумевается все-таки Timsort, а не чистая сортировка слиянием, 
+- в-третьих, если элементы массива представляют из себя целые числа (`int`), то для таких массивов применяется наиболее быстрая [поразрядная сортировка (radix sort)](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B0%D1%8F_%D1%81%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0).
+
+Более подробно о поразрядной сортировке можно прочитать по следующе ссылке:
+- Седжвик, Р., 2001. Фундаментальные алгоритмы на С++. К.: Диасофт.  - с. 401-437
+
+3. **heapsort**
+
+И только здесь перед нами островок стабильности! Пирамидальная сортировка, как и заявлено в документации.
+
+Кстати говоря, все указанные выше виды сортировок NumPy соответствуют также интерфейсу метода [sort_values()](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html) другого распространенного среди научного сообщества (особенно в сфере науки о данных) модуля [pandas](https://pandas.pydata.org/pandas-docs/stable/index.html).
+
+### Ресурсы для визуализации алгоритмов сортировок и полезные ссылки
+
+1. [SORTING.at](http://sorting.at/) 
+2. [Sorting Algorithms Animations](https://www.toptal.com/developers/sorting-algorithms)
+3. [Min Heap sort](https://www.cs.usfca.edu/~galles/visualization/Heap.html)
+4. [Описание алгоритмов сортировки и сравнение их производительности](https://habr.com/ru/post/335920/)
+5. [Основные виды сортировок и примеры их реализации](https://academy.yandex.ru/posts/osnovnye-vidy-sortirovok-i-primery-ikh-realizatsii)
 
