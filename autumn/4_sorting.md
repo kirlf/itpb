@@ -102,7 +102,7 @@ print(arr_1)
 2. Каждая из получившихся частей сортируется отдельно, например — тем же самым алгоритмом;
 3. Два упорядоченных массива половинного размера соединяются в один.
 
-![](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A4%D0%B0%D0%B9%D0%BB:Merge_sort1.png)
+![](https://neerc.ifmo.ru/wiki/images/d/db/Merge_sort1.png)
 
 *Рис. 1. [Пример работы рекурсивного алгоритма сортировки слиянием.](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC)*
 
