@@ -33,6 +33,7 @@
 
 2. Основы алгоритмов и структур данных: 
 - [Добавление элемента в начало односвязного списка](https://github.com/kirlf/itpb/blob/master/autumn/3_linked_lists.md)
+- [Алгоритмы сортировки](https://github.com/kirlf/itpb/blob/master/autumn/4_sorting.md)
 
 
 ## Лабораторные работы
