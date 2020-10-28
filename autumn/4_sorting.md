@@ -84,7 +84,7 @@ print(arr_1)
 - Седжвик, Р., 2001. Фундаментальные алгоритмы на С++. К.: Диасофт.  - с. 299-329
 
 Ассимптотическая сложность: 
-- в среднем <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" />;
+- в среднем <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" /> ;
 - в худшем случае <img src="https://i.upmath.me/svg/O(N%5E2)" alt="O(N^2)" />.
 
 [![](http://img.youtube.com/vi/ywWBy6J5gz8/0.jpg)](http://www.youtube.com/watch?v=ywWBy6J5gz8 "")
@@ -102,7 +102,7 @@ print(arr_1)
 2. Каждая из получившихся частей сортируется отдельно, например — тем же самым алгоритмом;
 3. Два упорядоченных массива половинного размера соединяются в один.
 
-![](https://neerc.ifmo.ru/wiki/images/d/db/Merge_sort1.png)
+<img src="https://neerc.ifmo.ru/wiki/images/d/db/Merge_sort1.png" width="400" />
 
 *Рис. 1. [Пример работы рекурсивного алгоритма сортировки слиянием.](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A1%D0%BE%D1%80%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5%D0%BC)*
 
@@ -111,8 +111,8 @@ print(arr_1)
 - Стивенс, Р., 2016. Алгоритмы. Разработка и применение. М.: Издательство «Э. - с. 155-157
 
 Ассимптотическая сложность: 
-- в лучшем случае <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" />;
-- в среднем <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" />;
+- в лучшем случае <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" /> ;
+- в среднем <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" /> ;
 - в худшем случае <img src="https://i.upmath.me/svg/O(N%5Clog_2N)" alt="O(N\log_2N)" />.
 
 [![](http://img.youtube.com/vi/XaqR3G_NVoo/0.jpg)](http://www.youtube.com/watch?v=XaqR3G_NVoo "")
