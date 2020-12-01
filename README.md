@@ -40,3 +40,4 @@
 
 1. [Основы языка C](https://github.com/kirlf/itpb/blob/master/lab_1.md)
 2. [Однонаправленные связные списки](https://github.com/kirlf/itpb/blob/master/lab_2.md)
+3. [Обработка символьных данных и сортировка](https://github.com/kirlf/itpb/blob/master/lab_3.md)
