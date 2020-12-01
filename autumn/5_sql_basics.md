@@ -89,11 +89,11 @@ CREATE TABLE table_name_2 (
 Наполним ее данными:
 
 ```sql
-INSERT INTO table_name (name) VALUES ("Audrey");
-INSERT INTO table_name (name) VALUES ("Lora");
-INSERT INTO table_name (name) VALUES ("Donna");
+INSERT INTO table_name_2 (name) VALUES ("Audrey");
+INSERT INTO table_name_2 (name) VALUES ("Lora");
+INSERT INTO table_name_2 (name) VALUES ("Donna");
 
-SELECT * FROM table_name;
+SELECT * FROM table_name_2;
 ```
 
 Вывод:
