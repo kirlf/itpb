@@ -229,3 +229,21 @@ WHERE table_name.kind = "human" AND table_name_2.kind = "human";
 2|5|Cooper|human|2|0|Lora|human
 ```
 
+8. **Деление**
+
+Запрос:
+
+```sql
+SELECT DISTINCT int_column, kind FROM table_name 
+WHERE NOT EXISTS (SELECT * FROM table_name_2 
+    WHERE table_name.name = table_name_2.name);
+```
+
+Вывод:
+
+
+```sh
+0|ghost
+5|human
+4|ghost
+```
