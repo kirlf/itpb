@@ -73,6 +73,10 @@ SELECT * FROM table_name;
 
 1. **Выборка**
 
+Операция выборки работает с одним отношением <img src="https://i.upmath.me/svg/R_1" alt="R_1" /> и определяет результирующее отношение *R*, которое содержит только те кортежи (или строки, или записи), отношения <img src="https://i.upmath.me/svg/R_1" alt="R_1" />, которые удовлетворяют заданному условию (предикату *P*):
+
+<p align="center"><img align="center" src="https://i.upmath.me/svg/R%20%3D%20%5Csigma_P(R_1)" alt="R = \sigma_P(R_1)" /></p>
+
 Запрос:
 
 ```sql
@@ -87,6 +91,10 @@ SELECT * FROM table_name WHERE int_column > 0;
 ```
 
 2. **Проекция**
+
+Операция проекции работает, как и операция выборки, только с одним отношением <img src="https://i.upmath.me/svg/R_1" alt="R_1" /> и определяет новое отношение *R*, в котором есть лишь те атрибуты (столбцы), которые заданы в операции, и их значения:
+
+<p align="center"><img align="center" src="https://i.upmath.me/svg/R%20%3D%20%5CPi_%7Ba_1...a_n%7D(R_1)" alt="R = \Pi_{a_1...a_n}(R_1)" /></p>
 
 Запрос:
 
@@ -104,6 +112,10 @@ Mike|ghost
 ```
 
 3. **Объединение**
+
+Результатом объединения двух множеств (отношений) *А* и *В* будет такое множество (отношение) *С*, которое включает в себя те и только те элементы, которые есть или во множестве *А* или во множестве *В*:
+
+<p align="center"><img align="center" src="https://i.upmath.me/svg/C%20%3D%20A%20%5Ccup%20B" alt="C = A \cup B" /></p>
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Venn0111.svg/440px-Venn0111.svg.png)
 
@@ -124,11 +136,15 @@ CREATE TABLE table_name_2 (
 INSERT INTO table_name_2 (name) VALUES ("Audrey");
 INSERT INTO table_name_2 (name) VALUES ("Lora");
 INSERT INTO table_name_2 (name) VALUES ("Donna");
+```
 
+Проверим содержимое:
+
+```sql
 SELECT * FROM table_name_2;
 ```
 
-Вывод:
+Видим на экране следующее:
 
 ```sh
 1|0|Audrey|human
@@ -156,6 +172,10 @@ UNION SELECT int_column, name, kind FROM table_name_2;
 
 4. **Пересечение**
 
+Результатом пересечения двух множеств (отношений) *А* и *В* () будет такое множество (отношение) *С*, которое включает в себя те и только те элементы, которые есть и во множестве *А*, и во множестве *В*:
+
+<p align="center"><img align="center" src="https://i.upmath.me/svg/C%20%3D%20A%20%5Ccap%20B" alt="C = A \cap B" /></p>
+
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Venn0001.svg/440px-Venn0001.svg.png)
 
 Запрос:
@@ -172,6 +192,12 @@ INTERSECT SELECT int_column FROM table_name_2;
 ```
 
 5. **Разность**
+
+Разность двух отношений <img src="https://i.upmath.me/svg/R_1" alt="R_1" /> и <img src="https://i.upmath.me/svg/R_2" alt="R_2" /> состоит из кортежей (или записей, или строк), которые имеются в отношении <img src="https://i.upmath.me/svg/R_1" alt="R_1" />, но отсутствуют в отношении <img src="https://i.upmath.me/svg/R_2" alt="R_2" />:
+
+<p align="center"><img align="center" src="https://i.upmath.me/svg/R%20%3D%20R_1%20-%20R_2" alt="R = R_1 - R_2" /></p>
+
+Отношения <img src="https://i.upmath.me/svg/R_1" alt="R_1" /> и <img src="https://i.upmath.me/svg/R_2" alt="R_2" /> должны быть совместимы по объединению.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Venn0100.svg/440px-Venn0100.svg.png)
 
@@ -191,6 +217,10 @@ EXCEPT SELECT int_column FROM table_name_2;
 ```
 
 6. **Декартово произведение**
+
+Операция декартова произведения определяет новое отношение *R*, которое является результатом конкатенации каждого кортежа отношения <img src="https://i.upmath.me/svg/R_1" alt="R_1" /> с каждым кортежем отношения <img src="https://i.upmath.me/svg/R_2" alt="R_2" />:
+
+<p align="center"><img align="center" src="https://i.upmath.me/svg/R%20%3D%20R_1%20%5Ctimes%20R_2" alt="R = R_1 \times R_2" /></p>
 
 ```sql
 SELECT * FROM table_name, table_name_2;
@@ -212,6 +242,8 @@ SELECT * FROM table_name, table_name_2;
 
 7. **Соединение (тета-соединение)**
 
+В результате этой операции получается отношение, которое содержит кортежи из декартова произведения отношений <img src="https://i.upmath.me/svg/R_1" alt="R_1" /> и <img src="https://i.upmath.me/svg/R_2" alt="R_2" /> удовлетворяющие предикату *Р*. Значением предиката Р может быть один из операторов сравнения (<, <=, >, >=, = или !=).
+
 Запрос:
 
 ```sql
@@ -230,6 +262,13 @@ WHERE table_name.kind = "human" AND table_name_2.kind = "human";
 ```
 
 8. **Деление**
+
+Результатом операции деления является набор кортежей (строк) отношения <img src="https://i.upmath.me/svg/R_1" alt="R_1" />, которые соответствуют комбинации всех кортежей отношения <img src="https://i.upmath.me/svg/R_2" alt="R_2" />:
+
+<p align="center"><img align="center" src="https://i.upmath.me/svg/R%20%3D%20R_1%20%5Cdiv%20R_2" alt="R = R_1 \div R_2" /></p>
+
+
+Для этого нужно, чтобы в отношении <img src="https://i.upmath.me/svg/R_2" alt="R_2" /> была часть атрибутов (можно и один), которые есть в отношении <img src="https://i.upmath.me/svg/R_1" alt="R_1" />. В результирующем отношении присутствуют только те атрибуты отношения <img src="https://i.upmath.me/svg/R_1" alt="R_1" />, которых нет в отношении <img src="https://i.upmath.me/svg/R_2" alt="R_2" />.
 
 Запрос:
 
